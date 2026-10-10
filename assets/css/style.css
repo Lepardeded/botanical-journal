@@ -1,0 +1,158 @@
+/* Базовые настройки */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #f5f4ef;
+    color: #29372d;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Шапка */
+
+.site-header {
+    min-height: 88px;
+    padding: 24px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    border-bottom: 1px solid #deded4;
+}
+
+.site-logo {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.site-label,
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.site-label {
+    color: #777b70;
+}
+
+/* Главный экран */
+
+.hero {
+    width: min(100% - 48px, 1120px);
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 100px 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.eyebrow {
+    color: #71856a;
+}
+
+.hero h1,
+.about h2 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    letter-spacing: -1.5px;
+}
+
+.hero h1 {
+    max-width: 850px;
+    margin: 18px 0;
+    font-size: clamp(44px, 7vw, 82px);
+    line-height: 1.08;
+}
+
+.hero-description {
+    max-width: 560px;
+    color: #686d63;
+    font-size: 18px;
+}
+
+.primary-link {
+    margin-top: 24px;
+    padding: 14px 22px;
+    background: #354a38;
+    color: #fff;
+    transition: background 0.2s ease;
+}
+
+.primary-link:hover {
+    background: #526b50;
+}
+
+.hero-note {
+    margin-top: 40px;
+    color: #818277;
+    font-size: 12px;
+}
+
+/* О проекте */
+
+.about {
+    padding: 72px max(7%, calc((100% - 1120px) / 2));
+    background: #e8e8df;
+}
+
+.about h2 {
+    margin: 12px 0;
+    font-size: clamp(32px, 4vw, 48px);
+}
+
+.about > p:last-child {
+    max-width: 650px;
+    color: #60685e;
+}
+
+/* Подвал */
+
+.site-footer {
+    padding: 28px 7%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #686d63;
+    font-size: 12px;
+}
+
+/* Мобильные устройства */
+
+@media (max-width: 600px) {
+    .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 72px 0;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
