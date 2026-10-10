@@ -1,0 +1,249 @@
+:root {
+    /* Основные цвета */
+    --color-bg: #D4D2CA;
+    --color-surface: #F2F0E9;
+    --color-surface-muted: #E5E3DB;
+
+    /* Растительные акценты */
+    --color-olive: #7B8172;
+    --color-forest: #354239;
+    --color-forest-hover: #49584B;
+
+    /* Текст */
+    --color-text: #292D29;
+    --color-text-muted: #62665E;
+    --color-text-soft: #777B70;
+
+    /* Границы и разделители */
+    --color-border: #BDBDB3;
+
+    /* Служебные цвета */
+    --color-white: #FFFFFF;
+
+    /* Размеры и оформление */
+    --content-width: 1120px;
+    --page-gutter: 7%;
+    --radius-sm: 4px;
+    --transition-fast: 0.2s ease;
+}
+
+/* Базовые настройки */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Шапка */
+
+.site-header {
+    min-height: 88px;
+    padding: 24px var(--page-gutter);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.site-logo {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.site-label,
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* Навигация */
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 14px;
+}
+
+.site-nav a {
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast);
+}
+
+.site-nav a:hover {
+    color: var(--color-forest);
+}
+
+
+.site-label {
+    color: var(--color-text-soft);
+}
+
+/* Главный экран */
+
+.hero {
+    width: min(100% - 48px, var(--content-width));
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 100px 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.eyebrow {
+    color: var(--color-olive);
+}
+
+.hero h1,
+.about h2 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    letter-spacing: -1.5px;
+}
+
+.hero h1 {
+    max-width: 850px;
+    margin: 18px 0;
+    font-size: clamp(44px, 7vw, 82px);
+    line-height: 1.08;
+}
+
+.hero-description {
+    max-width: 560px;
+    color: var(--color-text-muted);
+    font-size: 18px;
+}
+
+.primary-link {
+    margin-top: 24px;
+    padding: 14px 22px;
+    background: var(--color-forest);
+    color: var(--color-white);
+    transition: background var(--transition-fast);
+}
+
+.primary-link:hover {
+    background: var(--color-forest-hover);
+}
+
+.hero-note {
+    margin-top: 40px;
+    color: var(--color-text-soft);
+    font-size: 12px;
+}
+
+/* О проекте */
+
+.about {
+    padding: 72px max(7%, calc((100% - 1120px) / 2));
+    background: var(--color-surface-muted);
+}
+
+.about h2 {
+    margin: 12px 0;
+    font-size: clamp(32px, 4vw, 48px);
+}
+
+.about > p:last-child {
+    max-width: 650px;
+    color: var(--color-text-muted);
+}
+
+/* Подвал */
+
+.site-footer {
+    padding: 28px 7%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: var(--color-text-muted);
+    font-size: 12px;
+    border-top: 1px solid var(--color-border);
+}
+
+/* Мобильные устройства */
+
+@media (max-width: 600px) {
+
+    .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px 24px;
+    }
+
+    .site-nav {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
+
+    .site-label {
+        font-size: 10px;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 72px 0;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .site-footer {
+    flex-direction: column;
+    gap: 8px;
+    }
+}
+
+/* Страница о проекте */
+
+.about-page {
+    width: min(100% - 48px, var(--content-width));
+    min-height: 520px;
+    margin: 0 auto;
+    padding: 88px 0;
+}
+
+.about-page h1 {
+    max-width: 800px;
+    margin: 18px 0;
+    font-family: Georgia, serif;
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: normal;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.about-page p:not(.eyebrow) {
+    max-width: 650px;
+    color: var(--color-text-muted);
+    font-size: 17px;
+}
+
+.about-page .primary-link {
+    display: inline-block;
+}
+

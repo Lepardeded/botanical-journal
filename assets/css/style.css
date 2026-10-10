@@ -75,6 +75,25 @@ a {
     font-weight: bold;
 }
 
+/* Навигация */
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 14px;
+}
+
+.site-nav a {
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast);
+}
+
+.site-nav a:hover {
+    color: var(--color-forest);
+}
+
+
 .site-label {
     color: var(--color-text-soft);
 }
@@ -166,10 +185,22 @@ a {
 /* Мобильные устройства */
 
 @media (max-width: 600px) {
+
     .site-header {
         align-items: flex-start;
         flex-direction: column;
-        gap: 8px;
+        gap: 12px;
+        padding: 20px 24px;
+    }
+
+    .site-nav {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
+
+    .site-label {
+        font-size: 10px;
     }
 
     .hero {
@@ -186,3 +217,33 @@ a {
     gap: 8px;
     }
 }
+
+/* Страница о проекте */
+
+.about-page {
+    width: min(100% - 48px, var(--content-width));
+    min-height: 520px;
+    margin: 0 auto;
+    padding: 88px 0;
+}
+
+.about-page h1 {
+    max-width: 800px;
+    margin: 18px 0;
+    font-family: Georgia, serif;
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: normal;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.about-page p:not(.eyebrow) {
+    max-width: 650px;
+    color: var(--color-text-muted);
+    font-size: 17px;
+}
+
+.about-page .primary-link {
+    display: inline-block;
+}
+
