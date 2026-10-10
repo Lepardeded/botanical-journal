@@ -1,3 +1,32 @@
+:root {
+    /* Основные цвета */
+    --color-bg: #D4D2CA;
+    --color-surface: #F2F0E9;
+    --color-surface-muted: #E5E3DB;
+
+    /* Растительные акценты */
+    --color-olive: #7B8172;
+    --color-forest: #354239;
+    --color-forest-hover: #49584B;
+
+    /* Текст */
+    --color-text: #292D29;
+    --color-text-muted: #62665E;
+    --color-text-soft: #777B70;
+
+    /* Границы и разделители */
+    --color-border: #BDBDB3;
+
+    /* Служебные цвета */
+    --color-white: #FFFFFF;
+
+    /* Размеры и оформление */
+    --content-width: 1120px;
+    --page-gutter: 7%;
+    --radius-sm: 4px;
+    --transition-fast: 0.2s ease;
+}
+
 /* Базовые настройки */
 
 * {
@@ -10,8 +39,8 @@ html {
 
 body {
     margin: 0;
-    background: #f5f4ef;
-    color: #29372d;
+    background: var(--color-bg);
+    color: var(--color-text);
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
@@ -25,12 +54,12 @@ a {
 
 .site-header {
     min-height: 88px;
-    padding: 24px 7%;
+    padding: 24px var(--page-gutter);
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
-    border-bottom: 1px solid #deded4;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .site-logo {
@@ -47,13 +76,13 @@ a {
 }
 
 .site-label {
-    color: #777b70;
+    color: var(--color-text-soft);
 }
 
 /* Главный экран */
 
 .hero {
-    width: min(100% - 48px, 1120px);
+    width: min(100% - 48px, var(--content-width));
     min-height: 600px;
     margin: 0 auto;
     padding: 100px 0 80px;
@@ -64,7 +93,7 @@ a {
 }
 
 .eyebrow {
-    color: #71856a;
+    color: var(--color-olive);
 }
 
 .hero h1,
@@ -83,25 +112,25 @@ a {
 
 .hero-description {
     max-width: 560px;
-    color: #686d63;
+    color: var(--color-text-muted);
     font-size: 18px;
 }
 
 .primary-link {
     margin-top: 24px;
     padding: 14px 22px;
-    background: #354a38;
-    color: #fff;
-    transition: background 0.2s ease;
+    background: var(--color-forest);
+    color: var(--color-white);
+    transition: background var(--transition-fast);
 }
 
 .primary-link:hover {
-    background: #526b50;
+    background: var(--color-forest-hover);
 }
 
 .hero-note {
     margin-top: 40px;
-    color: #818277;
+    color: var(--color-text-soft);
     font-size: 12px;
 }
 
@@ -109,7 +138,7 @@ a {
 
 .about {
     padding: 72px max(7%, calc((100% - 1120px) / 2));
-    background: #e8e8df;
+    background: var(--color-surface-muted);
 }
 
 .about h2 {
@@ -119,7 +148,7 @@ a {
 
 .about > p:last-child {
     max-width: 650px;
-    color: #60685e;
+    color: var(--color-text-muted);
 }
 
 /* Подвал */
@@ -129,8 +158,9 @@ a {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    color: #686d63;
+    color: var(--color-text-muted);
     font-size: 12px;
+    border-top: 1px solid var(--color-border);
 }
 
 /* Мобильные устройства */
@@ -152,7 +182,7 @@ a {
     }
 
     .site-footer {
-        flex-direction: column;
-        gap: 8px;
+    flex-direction: column;
+    gap: 8px;
     }
 }
