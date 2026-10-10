@@ -1,0 +1,8 @@
+title: Botanical Journal
+description: Дневники выращивания, коллекции растений и ботанические наблюдения.
+lang: ru
+
+url: "https://lepardeded.github.io"
+baseurl: "/botanical-journal"
+
+markdown: kramdown
