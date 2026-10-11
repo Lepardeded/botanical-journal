@@ -23,13 +23,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cards = Array.from(grid.querySelectorAll(".library-card"));
 
+    let searchTimer = null;
+    let lastNoResultsState = "";
+
     function normalize(value) {
-        return value
+        return (value || "")
             .toLocaleLowerCase("ru-RU")
             .trim()
             .replace(/\s+/g, " ");
     }
 
+    // Передача события в analytics.js.
+    function track(eventName, parameters = {}) {
+        if (
+            window.BotanicalAnalytics &&
+            typeof window.BotanicalAnalytics.track === "function"
+        ) {
+            window.BotanicalAnalytics.track(eventName, parameters);
+        }
+    }
+
+    // Поиск, фильтрация и сортировка карточек.
     function applyFilters() {
         const query = normalize(searchInput.value);
         const category = categorySelect.value;
@@ -55,11 +69,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         matchingCards.sort((a, b) => {
             if (sortMode === "date-desc") {
-                return b.dataset.date.localeCompare(a.dataset.date);
+                return (b.dataset.date || "").localeCompare(
+                    a.dataset.date || ""
+                );
             }
 
             if (sortMode === "date-asc") {
-                return a.dataset.date.localeCompare(b.dataset.date);
+                return (a.dataset.date || "").localeCompare(
+                    b.dataset.date || ""
+                );
             }
 
             const titleA = normalize(a.dataset.title);
@@ -89,20 +107,132 @@ document.addEventListener("DOMContentLoaded", () => {
 
         resetButton.hidden =
             !query && !category && sortMode === "date-desc";
+
+        // Фиксируем отсутствие результатов.
+        const noResultsState = JSON.stringify({
+            query,
+            category,
+            sortMode
+        });
+
+        if (
+            matchingCards.length === 0 &&
+            noResultsState !== lastNoResultsState
+        ) {
+            track("library_no_results", {
+                category: category || "all",
+                sort: sortMode,
+                query_length: query.length
+            });
+        }
+
+        lastNoResultsState =
+            matchingCards.length === 0 ? noResultsState : "";
+
+        return matchingCards.length;
     }
 
+    // Фиксируем поиск после паузы в наборе текста.
+    function scheduleSearchAnalytics() {
+        window.clearTimeout(searchTimer);
+
+        searchTimer = window.setTimeout(() => {
+            const query = normalize(searchInput.value);
+
+            if (!query) {
+                return;
+            }
+
+            track("library_search", {
+                query_length: query.length,
+                category: categorySelect.value || "all",
+                results_count: cards.filter(
+                    (card) => !card.hidden
+                ).length
+            });
+        }, 500);
+    }
+
+    // Сброс всех настроек библиотеки.
     function resetFilters() {
+        window.clearTimeout(searchTimer);
+
         searchInput.value = "";
         categorySelect.value = "";
         sortSelect.value = "date-desc";
+
+        lastNoResultsState = "";
+
         applyFilters();
     }
 
-    searchInput.addEventListener("input", applyFilters);
-    categorySelect.addEventListener("change", applyFilters);
-    sortSelect.addEventListener("change", applyFilters);
-    resetButton.addEventListener("click", resetFilters);
-    emptyResetButton.addEventListener("click", resetFilters);
+    // Поиск.
+    searchInput.addEventListener("input", () => {
+        applyFilters();
+        scheduleSearchAnalytics();
+    });
 
+    // Изменение категории.
+    categorySelect.addEventListener("change", () => {
+        applyFilters();
+
+        track("library_filter_change", {
+            category: categorySelect.value || "all"
+        });
+    });
+
+    // Изменение сортировки.
+    sortSelect.addEventListener("change", () => {
+        applyFilters();
+
+        track("library_sort_change", {
+            sort: sortSelect.value
+        });
+    });
+
+    // Сброс фильтров.
+    resetButton.addEventListener("click", () => {
+        track("library_reset");
+        resetFilters();
+    });
+
+    emptyResetButton.addEventListener("click", () => {
+        track("library_reset");
+        resetFilters();
+    });
+
+    // Открытие статьи через ссылку в карточке.
+    grid.addEventListener("click", (event) => {
+        const target = event.target;
+
+        if (!(target instanceof Element)) {
+            return;
+        }
+
+        const link = target.closest("a");
+
+        if (!link || !grid.contains(link)) {
+            return;
+        }
+
+        const card = link.closest(".library-card");
+
+        if (!card) {
+            return;
+        }
+
+        track("article_open", {
+            article_id:
+                card.dataset.id ||
+                link.getAttribute("href") ||
+                "unknown",
+
+            article_title:
+                card.dataset.title ||
+                link.textContent.trim()
+        });
+    });
+
+    // Первоначальное отображение карточек.
     applyFilters();
 });

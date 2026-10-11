@@ -61,56 +61,66 @@ description: Статьи, руководства и ботанические н
 
 </div>
 
+
 <div class="library-grid" id="library-grid">
 
-    {% for article in site.data.library %}
+    {% for item in site.data.library %}
     <article
         class="library-card"
-        data-title="{{ article.title | escape }}"
-        data-description="{{ article.description | escape }}"
-        data-category="{{ article.category | escape }}"
-        data-tags="{{ article.tags | join: ' ' | escape }}"
-        data-date="{{ article.date }}"
+        data-id="{{ item.id | escape }}"
+        data-title="{{ item.title | escape }}"
+        data-description="{{ item.description | escape }}"
+        data-category="{{ item.category | escape }}"
+        data-tags="{{ item.tags | join: ' ' | escape }}"
+        data-date="{{ item.date | escape }}"
     >
 
-        <div class="library-card-image">
-            {% if article.image != "" %}
+        <a
+            class="library-card-image-link"
+            href="{{ item.url | relative_url }}"
+            aria-label="Читать: {{ item.title | escape }}"
+        >
             <img
-                src="{{ article.image | relative_url }}"
-                alt=""
+                class="library-card-image"
+                src="{{ item.image | relative_url }}"
+                alt="{{ item.title | escape }}"
                 loading="lazy"
+                width="640"
+                height="420"
             >
-            {% else %}
-            <span>{{ article.category | upcase }}</span>
-            {% endif %}
-        </div>
+        </a>
 
         <div class="library-card-content">
-            <p class="eyebrow">{{ article.category }}</p>
 
-            <h2>
-                <a href="{{ article.url | relative_url }}">
-                    {{ article.title }}
+            <p class="library-card-category">
+                {{ item.category | escape }}
+            </p>
+
+            <h2 class="library-card-title">
+                <a href="{{ item.url | relative_url }}">
+                    {{ item.title | escape }}
                 </a>
             </h2>
 
-            <p>{{ article.description }}</p>
+            <p class="library-card-description">
+                {{ item.description | escape }}
+            </p>
 
             <div class="library-card-meta">
-                <span>{{ article.type }}</span>
-                <time datetime="{{ article.date }}">
-                    {{ article.date | date: "%d.%m.%Y" }}
+                <time datetime="{{ item.date | date: '%Y-%m-%d' }}">
+                    {{ item.date | date: "%d.%m.%Y" }}
                 </time>
             </div>
 
             <a
                 class="library-card-link"
-                href="{{ article.url | relative_url }}"
+                href="{{ item.url | relative_url }}"
             >
-                Читать материал <span aria-hidden="true">↗</span>
+                Читать материал
+                <span aria-hidden="true">→</span>
             </a>
-        </div>
 
+        </div>
     </article>
     {% endfor %}
 
@@ -124,7 +134,7 @@ description: Статьи, руководства и ботанические н
     </button>
 </div>
 
+<script src="{{ '/assets/js/analytics.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/library.js' | relative_url }}" defer></script>
-
 
 </section>

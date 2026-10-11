@@ -8,7 +8,7 @@
     - фотосинтез
   date: "2026-10-11"
   type: "Руководство"
-  image: ""
+  image: "/assets/images/library/lighting.webp"
   url: "/pages/articles/lighting.html"
 
 - id: watering
@@ -21,7 +21,7 @@
     - корни
   date: "2026-10-11"
   type: "Практическая статья"
-  image: ""
+  image: "/assets/images/library/watering.jpg"
   url: "/pages/articles/watering.html"
 
 - id: substrate
@@ -34,7 +34,7 @@
     - дренаж
   date: "2026-10-11"
   type: "Справочный материал"
-  image: ""
+  image: "/assets/images/library/substrate.jpg"
   url: "/pages/articles/substrate.html"
 
 - id: propagation
@@ -47,7 +47,7 @@
     - укоренение
   date: "2026-10-11"
   type: "Руководство"
-  image: ""
+  image: "/assets/images/library/propagation.jfif"
   url: "/pages/articles/propagation.html"
 
 - id: observations
@@ -60,5 +60,5 @@
     - эксперименты
   date: "2026-10-11"
   type: "Практическая статья"
-  image: ""
+  image: "/assets/images/library/observations.webp"
   url: "/pages/articles/observations.html"
