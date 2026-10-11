@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        
+            Библиотека — Botanical Journal
+        
+    </title>
+
+    <meta name="description"
+          content="Статьи, руководства и ботанические наблюдения Botanical Journal.">
+
+    <link rel="stylesheet"
+          href="/botanical-journal/assets/css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+    <a class="site-logo" href="/botanical-journal/">
+        Botanical Journal
+    </a>
+
+    <nav class="site-nav" aria-label="Основная навигация">
+        <a href="/botanical-journal/">Главная</a>
+        <a href="/botanical-journal/pages/catalog.html">Каталог</a>
+        <a href="/botanical-journal/pages/library.html">Библиотека</a>
+        <a href="/botanical-journal/pages/about.html">О проекте</a>
+    </nav>
+
+    <span class="site-label">PLANT JOURNAL &amp; PORTFOLIO</span>
+</header>
+
+
+    <main>
+        <section class="library-page">
+
+    <header class="section-intro">
+        <p class="eyebrow">BOTANICAL KNOWLEDGE / LIBRARY</p>
+        <h1>Библиотека знаний</h1>
+        <p>
+            Статьи, практические руководства и наблюдения,
+            которые помогают лучше понимать растения.
+        </p>
+    </header>
+
+<div class="library-controls">
+
+    <label class="library-search">
+        <span class="visually-hidden">Поиск по библиотеке</span>
+        <span aria-hidden="true">⌕</span>
+        <input
+            id="library-search"
+            type="search"
+            placeholder="Название, тема или ключевое слово..."
+            autocomplete="off"
+        >
+    </label>
+
+    <div class="library-filter-row">
+        <label class="library-filter">
+            <span>Категория</span>
+            <select id="library-category">
+                <option value="">Все категории</option>
+                <option value="Освещение">Освещение</option>
+                <option value="Уход">Уход</option>
+                <option value="Субстраты">Субстраты</option>
+                <option value="Размножение">Размножение</option>
+                <option value="Наблюдения">Наблюдения</option>
+            </select>
+        </label>
+
+        <label class="library-filter">
+            <span>Сортировка</span>
+            <select id="library-sort">
+                <option value="date-desc">Сначала новые</option>
+                <option value="date-asc">Сначала старые</option>
+                <option value="title-asc">По названию А—Я</option>
+                <option value="title-desc">По названию Я—А</option>
+            </select>
+        </label>
+    </div>
+
+    <div class="library-results" aria-live="polite">
+        <p id="library-result-count">Материалов: 0</p>
+        <button id="library-reset" type="button">
+            Сбросить фильтры
+        </button>
+    </div>
+
+</div>
+
+<div class="library-grid" id="library-grid">
+
+    
+    <article
+        class="library-card"
+        data-title="Освещение комнатных растений"
+        data-description="Как оценивать освещённость и подбирать место для разных растений."
+        data-category="Освещение"
+        data-tags="свет фитолампы фотосинтез"
+        data-date="2026-10-11"
+    >
+
+        <div class="library-card-image">
+            
+            <span>ОСВЕЩЕНИЕ</span>
+            
+        </div>
+
+        <div class="library-card-content">
+            <p class="eyebrow">Освещение</p>
+
+            <h2>
+                <a href="/botanical-journal/pages/articles/lighting.html">
+                    Освещение комнатных растений
+                </a>
+            </h2>
+
+            <p>Как оценивать освещённость и подбирать место для разных растений.</p>
+
+            <div class="library-card-meta">
+                <span>Руководство</span>
+                <time datetime="2026-10-11">
+                    11.10.2026
+                </time>
+            </div>
+
+            <a
+                class="library-card-link"
+                href="/botanical-journal/pages/articles/lighting.html"
+            >
+                Читать материал <span aria-hidden="true">↗</span>
+            </a>
+        </div>
+
+    </article>
+    
+    <article
+        class="library-card"
+        data-title="Полив и влажность субстрата"
+        data-description="Как определять необходимость полива и избегать переувлажнения."
+        data-category="Уход"
+        data-tags="полив влажность корни"
+        data-date="2026-10-11"
+    >
+
+        <div class="library-card-image">
+            
+            <span>УХОД</span>
+            
+        </div>
+
+        <div class="library-card-content">
+            <p class="eyebrow">Уход</p>
+
+            <h2>
+                <a href="/botanical-journal/pages/articles/watering.html">
+                    Полив и влажность субстрата
+                </a>
+            </h2>
+
+            <p>Как определять необходимость полива и избегать переувлажнения.</p>
+
+            <div class="library-card-meta">
+                <span>Практическая статья</span>
+                <time datetime="2026-10-11">
+                    11.10.2026
+                </time>
+            </div>
+
+            <a
+                class="library-card-link"
+                href="/botanical-journal/pages/articles/watering.html"
+            >
+                Читать материал <span aria-hidden="true">↗</span>
+            </a>
+        </div>
+
+    </article>
+    
+    <article
+        class="library-card"
+        data-title="Минеральные компоненты субстрата"
+        data-description="Свойства перлита, песка и других компонентов грунтовых смесей."
+        data-category="Субстраты"
+        data-tags="грунт перлит дренаж"
+        data-date="2026-10-11"
+    >
+
+        <div class="library-card-image">
+            
+            <span>СУБСТРАТЫ</span>
+            
+        </div>
+
+        <div class="library-card-content">
+            <p class="eyebrow">Субстраты</p>
+
+            <h2>
+                <a href="/botanical-journal/pages/articles/substrate.html">
+                    Минеральные компоненты субстрата
+                </a>
+            </h2>
+
+            <p>Свойства перлита, песка и других компонентов грунтовых смесей.</p>
+
+            <div class="library-card-meta">
+                <span>Справочный материал</span>
+                <time datetime="2026-10-11">
+                    11.10.2026
+                </time>
+            </div>
+
+            <a
+                class="library-card-link"
+                href="/botanical-journal/pages/articles/substrate.html"
+            >
+                Читать материал <span aria-hidden="true">↗</span>
+            </a>
+        </div>
+
+    </article>
+    
+    <article
+        class="library-card"
+        data-title="Размножение растений"
+        data-description="Обзор основных способов размножения и условий укоренения."
+        data-category="Размножение"
+        data-tags="семена черенки укоренение"
+        data-date="2026-10-11"
+    >
+
+        <div class="library-card-image">
+            
+            <span>РАЗМНОЖЕНИЕ</span>
+            
+        </div>
+
+        <div class="library-card-content">
+            <p class="eyebrow">Размножение</p>
+
+            <h2>
+                <a href="/botanical-journal/pages/articles/propagation.html">
+                    Размножение растений
+                </a>
+            </h2>
+
+            <p>Обзор основных способов размножения и условий укоренения.</p>
+
+            <div class="library-card-meta">
+                <span>Руководство</span>
+                <time datetime="2026-10-11">
+                    11.10.2026
+                </time>
+            </div>
+
+            <a
+                class="library-card-link"
+                href="/botanical-journal/pages/articles/propagation.html"
+            >
+                Читать материал <span aria-hidden="true">↗</span>
+            </a>
+        </div>
+
+    </article>
+    
+    <article
+        class="library-card"
+        data-title="Как вести дневник наблюдений"
+        data-description="Как фиксировать рост, изменения листьев, полив и результаты экспериментов."
+        data-category="Наблюдения"
+        data-tags="дневник рост эксперименты"
+        data-date="2026-10-11"
+    >
+
+        <div class="library-card-image">
+            
+            <span>НАБЛЮДЕНИЯ</span>
+            
+        </div>
+
+        <div class="library-card-content">
+            <p class="eyebrow">Наблюдения</p>
+
+            <h2>
+                <a href="/botanical-journal/pages/articles/observations.html">
+                    Как вести дневник наблюдений
+                </a>
+            </h2>
+
+            <p>Как фиксировать рост, изменения листьев, полив и результаты экспериментов.</p>
+
+            <div class="library-card-meta">
+                <span>Практическая статья</span>
+                <time datetime="2026-10-11">
+                    11.10.2026
+                </time>
+            </div>
+
+            <a
+                class="library-card-link"
+                href="/botanical-journal/pages/articles/observations.html"
+            >
+                Читать материал <span aria-hidden="true">↗</span>
+            </a>
+        </div>
+
+    </article>
+    
+
+</div>
+
+<div id="library-empty" class="library-empty" hidden>
+    <h2>Ничего не найдено</h2>
+    <p>Попробуй изменить поисковый запрос или категорию.</p>
+    <button id="library-empty-reset" type="button">
+        Показать все материалы
+    </button>
+</div>
+
+<script src="/botanical-journal/assets/js/library.js" defer></script>
+
+
+</section>
+
+    </main>
+
+    <footer class="site-footer">
+    <span>BOTANICAL JOURNAL</span>
+    <span>Выращивать. Наблюдать. Понимать.</span>
+</footer>
+
+
+</body>
+</html>

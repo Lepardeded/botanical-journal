@@ -1,0 +1,130 @@
+---
+layout: default
+title: Библиотека
+description: Статьи, руководства и ботанические наблюдения Botanical Journal.
+---
+
+<section class="library-page">
+
+    <header class="section-intro">
+        <p class="eyebrow">BOTANICAL KNOWLEDGE / LIBRARY</p>
+        <h1>Библиотека знаний</h1>
+        <p>
+            Статьи, практические руководства и наблюдения,
+            которые помогают лучше понимать растения.
+        </p>
+    </header>
+
+<div class="library-controls">
+
+    <label class="library-search">
+        <span class="visually-hidden">Поиск по библиотеке</span>
+        <span aria-hidden="true">⌕</span>
+        <input
+            id="library-search"
+            type="search"
+            placeholder="Название, тема или ключевое слово..."
+            autocomplete="off"
+        >
+    </label>
+
+    <div class="library-filter-row">
+        <label class="library-filter">
+            <span>Категория</span>
+            <select id="library-category">
+                <option value="">Все категории</option>
+                <option value="Освещение">Освещение</option>
+                <option value="Уход">Уход</option>
+                <option value="Субстраты">Субстраты</option>
+                <option value="Размножение">Размножение</option>
+                <option value="Наблюдения">Наблюдения</option>
+            </select>
+        </label>
+
+        <label class="library-filter">
+            <span>Сортировка</span>
+            <select id="library-sort">
+                <option value="date-desc">Сначала новые</option>
+                <option value="date-asc">Сначала старые</option>
+                <option value="title-asc">По названию А—Я</option>
+                <option value="title-desc">По названию Я—А</option>
+            </select>
+        </label>
+    </div>
+
+    <div class="library-results" aria-live="polite">
+        <p id="library-result-count">Материалов: 0</p>
+        <button id="library-reset" type="button">
+            Сбросить фильтры
+        </button>
+    </div>
+
+</div>
+
+<div class="library-grid" id="library-grid">
+
+    {% for article in site.data.library %}
+    <article
+        class="library-card"
+        data-title="{{ article.title | escape }}"
+        data-description="{{ article.description | escape }}"
+        data-category="{{ article.category | escape }}"
+        data-tags="{{ article.tags | join: ' ' | escape }}"
+        data-date="{{ article.date }}"
+    >
+
+        <div class="library-card-image">
+            {% if article.image != "" %}
+            <img
+                src="{{ article.image | relative_url }}"
+                alt=""
+                loading="lazy"
+            >
+            {% else %}
+            <span>{{ article.category | upcase }}</span>
+            {% endif %}
+        </div>
+
+        <div class="library-card-content">
+            <p class="eyebrow">{{ article.category }}</p>
+
+            <h2>
+                <a href="{{ article.url | relative_url }}">
+                    {{ article.title }}
+                </a>
+            </h2>
+
+            <p>{{ article.description }}</p>
+
+            <div class="library-card-meta">
+                <span>{{ article.type }}</span>
+                <time datetime="{{ article.date }}">
+                    {{ article.date | date: "%d.%m.%Y" }}
+                </time>
+            </div>
+
+            <a
+                class="library-card-link"
+                href="{{ article.url | relative_url }}"
+            >
+                Читать материал <span aria-hidden="true">↗</span>
+            </a>
+        </div>
+
+    </article>
+    {% endfor %}
+
+</div>
+
+<div id="library-empty" class="library-empty" hidden>
+    <h2>Ничего не найдено</h2>
+    <p>Попробуй изменить поисковый запрос или категорию.</p>
+    <button id="library-empty-reset" type="button">
+        Показать все материалы
+    </button>
+</div>
+
+<script src="{{ '/assets/js/library.js' | relative_url }}" defer></script>
+
+
+</section>

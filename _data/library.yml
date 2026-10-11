@@ -1,0 +1,64 @@
+- id: lighting
+  title: "Освещение комнатных растений"
+  description: "Как оценивать освещённость и подбирать место для разных растений."
+  category: "Освещение"
+  tags:
+    - свет
+    - фитолампы
+    - фотосинтез
+  date: "2026-10-11"
+  type: "Руководство"
+  image: ""
+  url: "/pages/articles/lighting.html"
+
+- id: watering
+  title: "Полив и влажность субстрата"
+  description: "Как определять необходимость полива и избегать переувлажнения."
+  category: "Уход"
+  tags:
+    - полив
+    - влажность
+    - корни
+  date: "2026-10-11"
+  type: "Практическая статья"
+  image: ""
+  url: "/pages/articles/watering.html"
+
+- id: substrate
+  title: "Минеральные компоненты субстрата"
+  description: "Свойства перлита, песка и других компонентов грунтовых смесей."
+  category: "Субстраты"
+  tags:
+    - грунт
+    - перлит
+    - дренаж
+  date: "2026-10-11"
+  type: "Справочный материал"
+  image: ""
+  url: "/pages/articles/substrate.html"
+
+- id: propagation
+  title: "Размножение растений"
+  description: "Обзор основных способов размножения и условий укоренения."
+  category: "Размножение"
+  tags:
+    - семена
+    - черенки
+    - укоренение
+  date: "2026-10-11"
+  type: "Руководство"
+  image: ""
+  url: "/pages/articles/propagation.html"
+
+- id: observations
+  title: "Как вести дневник наблюдений"
+  description: "Как фиксировать рост, изменения листьев, полив и результаты экспериментов."
+  category: "Наблюдения"
+  tags:
+    - дневник
+    - рост
+    - эксперименты
+  date: "2026-10-11"
+  type: "Практическая статья"
+  image: ""
+  url: "/pages/articles/observations.html"
