@@ -15,6 +15,7 @@
 
     <link rel="stylesheet"
           href="/botanical-journal/assets/css/style.css">
+    <script src="/botanical-journal/assets/js/analytics.js" defer></script>
 </head>
 <body>
 
@@ -164,6 +165,16 @@
         <span aria-hidden="true">←</span> Вернуться в каталог
     </a>
 </article>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        if (window.BotanicalAnalytics) {
+            window.BotanicalAnalytics.track("plant_species_open", {
+                plant_id: "pomegranate",
+                plant_name: "Гранат обыкновенный"
+            });
+        }
+    });
+</script>
 
     </main>
 
